@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MP Galerie - Profil{% endblock %}
+
+{% block main %}
+    <main id="mainProfil">
+        <div id="bannerProfil">
+            <a href="{{ path("app_home") }}">
+                <img src="{{ asset("/images/logos/logo.png")}}" alt="logo MP Marion Page">
+            </a>
+            <h1>Profil</h1>
+        </div>
+        <div class="profil">
+            <div class="photoProfil">
+                {# <img src="{{ asset("images/Portrait .png")}}" alt="Photo de profil de MARION PAGE"> #}
+            </div>
+            <div class="detailsProfil">
+                <p>Marion Page</p>
+                <p> Designer et Artiste, je puise mon inspiration dans la 
+                    richesse du monde végétal, dans la faune et la flore 
+                    qui nous entourent, mais aussi dans la mémoire — mes 
+                    souvenirs personnels d’une nature passée, parfois 
+                    sublimée, parfois rêvée.
+                    <br>
+                    <br>
+                    Mon travail naît d’un regard sensible et idéalisé sur le 
+                    monde, souvent imprégné d’une innocence assumée. 
+                    Chaque œuvre devient l’empreinte d’un instant sus
+                    pendu, la trace d’un lieu secret, enfoui au cœur d’une 
+                    nature primitive et mystérieuse.
+                    <br>
+                    <br>
+                    Je cherche à capter cette beauté fragile, éphémère, 
+                    dans des scènes presque volées, comme un souffle 
+                    poétique échappé du réel.</p>
+                    <p>«Contempler la nature nous permet d’approcher 
+                    l’intimité du monde. Et parmi le tout qu’est la nature, 
+                    nature vivante ou nature minérale, il est particulière
+                    ment pertinent de contempler le monde végétal. Ce 
+                    monde qui se nourrit de la terre et du soleil semble 
+                    plus connecté au cosmos que n’importe quel orga
+                    nisme animal.»
+                    <br>
+                    <br>
+                    Elisabeth DUMONT, La géométrie dans le monde végétal,
+                    Édition Ulmer, 2014</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

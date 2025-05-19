@@ -1,0 +1,49 @@
+footer{
+    background-color: black;
+    // background-image:url("{{asset('images/footerMesh.png')");
+    // background-image:url(./../../images/footerMesh.png);
+    // background-image:url("./../../images/Bas de page.png");
+    background-image:url("./../../images/meshs/Pinceau bas page.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 64px;
+    >p{
+        color: white;
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+    >a:nth-of-type(1){
+        display: inline-block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-align: center;
+        i{
+            padding-right: 8px;
+        }
+    }
+    >a:nth-of-type(2){
+        scroll-behavior: smooth;
+        margin-top: 96px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: 100px;
+        }
+        p{
+            padding-top: 16px;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+    }
+}

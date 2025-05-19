@@ -1,0 +1,12 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+// PAGE INDEX /////////////////////////////////////////////////////////////
+#mainAquatic{
+    h1{
+        padding-top: 32px;
+        font-size: 32px;
+        font-family: QuickBrush;
+        text-align: center;
+    }
+}

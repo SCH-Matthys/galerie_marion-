@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block header %}
+    <header id="header">
+        <nav>
+            <img src="{{ asset("/images/logo.png")}}" alt="logo MP Marion Page">
+        </nav>
+    </header>
+{% endblock %}
+
+{% block main %}
+     <main id="mainRegister">
+         {{ form_start(registerForm)}}
+            <h1>Créer un compte</h1>
+	         {{form_widget(registerForm)}}
+            <button>Créer le compte</button>
+         {{ form_end(registerForm)}}
+     </main>
+{% endblock %}

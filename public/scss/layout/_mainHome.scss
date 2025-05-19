@@ -1,0 +1,90 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+// PAGE INDEX /////////////////////////////////////////////////////////////
+#mainHome{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    div#bannerHome{
+        height: 600px;
+        width: 100%;
+        // background-image: url("/images/ACCUEIL.png");
+        background-image: url("/images/meshs/Pinceau accueil.PNG");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        a{
+            >img{
+                margin-top: 32px;
+                transform: translateX(-50%);
+                margin-left: 50%;
+                height: 160px;
+            }
+        }
+        h1{
+            // padding-top: 32px;
+            font-size: 64px;
+            font-family: QuickBrush;
+            text-align: center;
+            font-weight: lighter;
+            padding-bottom: -64px;
+        }
+    }
+    >img{
+        height: 100px;
+    }
+    section{
+        padding-top: 64px;
+        margin-top: -256px;
+        ul{
+            li.animationScrollHidden{
+                opacity: 0;
+                transition: all 2s;
+                transform: translateY(-50px);
+            }
+            li.animationScrollShow{
+                opacity: 1;
+                transform: translateY(0);
+            }
+            li{
+                // border: solid 1px black;
+                padding: 16px;
+                margin-bottom: 96px;
+                a{
+                    img{
+                        width: 500px;
+                    }
+                    h2{
+                        font-family: QuickBrush;
+                        font-weight: lighter;
+                        text-align: center;
+                        font-size: 48px;
+                    }
+                }
+            }
+            li:nth-of-type(1){
+                a{
+                    h2{
+                        color: #1e3a1d;
+                    }
+                }
+            }
+            li:nth-of-type(2){
+                a{
+                    h2{
+                        color: #0a2976;
+                    }
+                }
+            }
+            li:nth-of-type(3){
+                a{
+                    h2{
+                        color: #6c93b4;
+                    }
+                }
+            }
+        }
+    }
+}

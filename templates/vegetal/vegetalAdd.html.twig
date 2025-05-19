@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vegetal Add{% endblock %}
+
+{% block main %}
+    <main id="mainVegetalAdd">
+        {% if is_granted("ROLE_ADMIN") %}
+            {{ form_start(articleForm) }}
+                <h1>Ajouter un Article</h1>
+                {{ form_widget(articleForm.titre) }}
+                {{ form_widget(articleForm.description) }}
+                {{ form_widget(articleForm.artist_name) }}
+                {{ form_widget(articleForm.article_details) }}
+                {{ form_widget(articleForm.technic) }}
+                {{ form_widget(articleForm.dimension) }}
+                {# {{ form_widget(articleForm.caracteristique) }} #}
+
+                <h2>Ajouter des images</h2>
+
+                {# Vérifie si le prototype est défini avant de l'utiliser #}
+                {% if articleForm.images.vars.prototype is defined %}
+                    {% set prototype %}
+                        {{ form_row(articleForm.images.vars.prototype.file)|replace({'__image__': '__name__'})|raw }}
+                    {% endset %}
+                {% else %}
+                    {% set prototype = '' %}
+                {% endif %}
+
+                <div id="image-collection" data-prototype="{{ prototype|e('html_attr') }}">
+                    {% for imageForm in articleForm.images %}
+                        <div class="image-entry">
+                            {{ form_row(imageForm.file) }}
+                            <button type="button" class="remove-image">Supprimer</button>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button type="button" id="add-image">Ajouter une image</button>
+                <button type="submit">Ajouter l'article</button>
+            {{ form_end(articleForm) }}
+        {% endif %}
+    </main>
+{% endblock %}
+{% block script %}
+    <script src="{{ asset('js/addImagesArticle.js') }}"></script>
+{% endblock %}

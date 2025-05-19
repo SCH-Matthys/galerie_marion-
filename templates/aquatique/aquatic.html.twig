@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aquatique{% endblock %}
+
+{% block main %}
+    <main id="mainAquatic">
+        <h1>Aquatique</h1>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="">Ajouter un article</a>
+        {% endif %}
+    </main>
+{% endblock %}

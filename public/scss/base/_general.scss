@@ -1,0 +1,16 @@
+
+@use "../abstract/variable" as var;
+@use "../base/typo";
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+    font-family: Acumin;
+}
+
+main{
+    min-height: calc(100vh - 487px);
+    // background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+}

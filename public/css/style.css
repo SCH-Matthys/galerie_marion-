@@ -1,0 +1,979 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: Acumin;
+  src: url(../../fonts/Acumin-Variable-Concept.ttf);
+}
+@font-face {
+  font-family: QuickBrush;
+  src: url(../../fonts/Quickbrush.otf);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Acumin;
+}
+
+main {
+  min-height: calc(100vh - 487px);
+}
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header nav img {
+  height: 160px;
+}
+header nav ul {
+  position: fixed;
+  left: 0px;
+  top: 288px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+header nav ul li {
+  padding: 8px 32px;
+}
+header nav ul li a {
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: Acumin;
+  transition: 0.2s;
+}
+header nav ul li a.active {
+  font-weight: bold;
+}
+header nav ul li a:hover {
+  font-weight: bold;
+}
+
+#mainHome {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+#mainHome div#bannerHome {
+  height: 600px;
+  width: 100%;
+  background-image: url("/images/meshs/Pinceau accueil.PNG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#mainHome div#bannerHome a > img {
+  margin-top: 32px;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  height: 160px;
+}
+#mainHome div#bannerHome h1 {
+  font-size: 64px;
+  font-family: QuickBrush;
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: -64px;
+}
+#mainHome > img {
+  height: 100px;
+}
+#mainHome section {
+  padding-top: 64px;
+  margin-top: -256px;
+}
+#mainHome section ul li.animationScrollHidden {
+  opacity: 0;
+  transition: all 2s;
+  transform: translateY(-50px);
+}
+#mainHome section ul li.animationScrollShow {
+  opacity: 1;
+  transform: translateY(0);
+}
+#mainHome section ul li {
+  padding: 16px;
+  margin-bottom: 96px;
+}
+#mainHome section ul li a img {
+  width: 500px;
+}
+#mainHome section ul li a h2 {
+  font-family: QuickBrush;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 48px;
+}
+#mainHome section ul li:nth-of-type(1) a h2 {
+  color: #1e3a1d;
+}
+#mainHome section ul li:nth-of-type(2) a h2 {
+  color: #0a2976;
+}
+#mainHome section ul li:nth-of-type(3) a h2 {
+  color: #6c93b4;
+}
+
+#mainAquatic h1 {
+  padding-top: 32px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  text-align: center;
+}
+
+#mainVegetal #lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+#mainVegetal #lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+}
+#mainVegetal #lightbox-controls {
+  margin-top: 10px;
+}
+#mainVegetal #lightbox button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 10px;
+  margin: 0 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#mainVegetal #lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 32px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+#mainVegetal div#bannerVegetal {
+  height: 385px;
+  width: 100%;
+  background-image: url("/images/meshs/Végétal.PNG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 64px;
+}
+#mainVegetal div#bannerVegetal a > img {
+  margin-top: 32px;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  height: 160px;
+}
+#mainVegetal div#bannerVegetal h1 {
+  padding-top: 32px;
+  font-size: 64px;
+  font-family: QuickBrush;
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 64px;
+}
+#mainVegetal a#btnAddArticle {
+  margin-top: 64px;
+  margin-bottom: 128px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 8px 32px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  border: solid 1px black;
+  font-size: 16px;
+  transition: 0.3s;
+  color: black;
+}
+#mainVegetal a#btnAddArticle:hover {
+  background-color: black;
+  color: white;
+}
+#mainVegetal div.btn-admin {
+  display: flex;
+  gap: 64px;
+  justify-content: center;
+  align-items: center;
+}
+#mainVegetal div.btn-admin a {
+  margin: 0px 0px 16px;
+  color: black;
+  padding: 8px 32px;
+  border: solid 1px black;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+#mainVegetal div.btn-admin a:hover {
+  background-color: rgba(173, 216, 230, 0.5);
+}
+#mainVegetal div.btn-admin #delete {
+  font-size: 16px;
+  font-family: Acumin;
+  color: black;
+  background-color: white;
+  margin: 0px 0px 16px;
+  padding: 8px 32px;
+  border: solid 1px black;
+  border-radius: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#mainVegetal div.btn-admin #delete:hover {
+  background-color: rgba(240, 128, 128, 0.5);
+}
+#mainVegetal article.oddAnimationScrollHidden {
+  opacity: 0;
+  transition: all 2s;
+  transform: translateX(-10%);
+  filter: blur(2px);
+}
+#mainVegetal article.oddAnimationScrollShow {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+#mainVegetal article.articleOdd {
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  padding-bottom: 150px;
+}
+#mainVegetal article.articleOdd .carousel {
+  height: auto;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+}
+#mainVegetal article.articleOdd .carousel .slider {
+  gap: 0;
+  transition: transform 2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% * var(--total-images));
+  left: 0;
+}
+#mainVegetal article.articleOdd .carousel .slider .image {
+  flex: 0 0 100%;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+#mainVegetal article.articleOdd .carousel .slider img {
+  display: block; /* Supprime les petits espaces sous l’image */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) {
+  max-height: 600px;
+  margin-left: 64px;
+  display: flex;
+  flex-direction: column;
+  height: 490px;
+  width: 500px;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) h2 {
+  margin-top: 16px;
+  font-size: 40px;
+  font-family: QuickBrush;
+  font-weight: lighter;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) p:nth-of-type(1) {
+  margin-top: 32px;
+  line-height: 24px;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) div {
+  margin-top: auto;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) div p {
+  padding-bottom: 2px;
+}
+#mainVegetal article.articleOdd div:nth-of-type(2) div p:nth-of-type(2) {
+  margin-bottom: 16px;
+}
+#mainVegetal article.notOddAnimationScrollHidden {
+  opacity: 0;
+  transition: all 2s;
+  transform: translateX(10%);
+  filter: blur(5px);
+}
+#mainVegetal article.notOddAnimationScrollShow {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+#mainVegetal article.articleNotOdd {
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 150px;
+}
+#mainVegetal article.articleNotOdd .carousel {
+  height: auto;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+}
+#mainVegetal article.articleNotOdd .carousel .slider {
+  gap: 0;
+  transition: transform 2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% * var(--total-images));
+  left: 0;
+}
+#mainVegetal article.articleNotOdd .carousel .slider .image {
+  flex: 0 0 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+#mainVegetal article.articleNotOdd .carousel .slider img {
+  height: auto;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) {
+  margin-right: 64px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 490px;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) h2 {
+  font-weight: lighter;
+  margin-top: 16px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  text-align: start;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) p:nth-of-type(1) {
+  margin-top: 32px;
+  line-height: 24px;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) div {
+  margin-top: auto;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) div p {
+  padding-bottom: 2px;
+  text-align: end;
+}
+#mainVegetal article.articleNotOdd div:nth-of-type(2) div p:nth-of-type(2) {
+  margin-bottom: 16px;
+}
+
+#mainVegetalAdd {
+  padding: 128px;
+}
+#mainVegetalAdd h1 {
+  margin: auto;
+  padding-top: 32px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  font-weight: lighter;
+  text-align: center;
+  margin-bottom: 16px;
+}
+#mainVegetalAdd h2 {
+  margin: auto;
+  padding-top: 32px;
+  font-size: 32px;
+  font-weight: lighter;
+  font-family: QuickBrush;
+  text-align: center;
+  margin-bottom: 16px;
+}
+#mainVegetalAdd form {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  border-radius: 4px;
+  padding: 16px 64px;
+  -webkit-box-shadow: 0px 10px 13rgb 219, 219, 219 #000000, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+}
+#mainVegetalAdd form label {
+  padding-top: 16px;
+  display: block;
+}
+#mainVegetalAdd form input {
+  width: 550px;
+  padding: 8px 24px;
+  border-radius: 32px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border: solid 1px black;
+  font-family: Acumin;
+}
+#mainVegetalAdd form input::placeholder {
+  text-align: left;
+  margin-top: 2px;
+}
+#mainVegetalAdd form textarea {
+  width: 550px;
+  height: 200px;
+  border-radius: 32px;
+  font-size: 16px;
+  padding: 24px 24px;
+  border: solid 1px black;
+  margin-bottom: 8px;
+  font-family: Acumin;
+}
+#mainVegetalAdd form textarea::placeholder {
+  text-align: left;
+  padding-top: 2px;
+}
+#mainVegetalAdd form button {
+  font-family: Acumin;
+  margin-top: 16px;
+  align-self: center;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+#mainVegetalEdit {
+  padding: 128px;
+}
+#mainVegetalEdit h1 {
+  margin: auto;
+  padding-top: 32px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  text-align: center;
+  margin-bottom: 16px;
+}
+#mainVegetalEdit h2 {
+  margin: auto;
+  padding-top: 32px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  text-align: center;
+  margin-bottom: 16px;
+}
+#mainVegetalEdit form {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  border-radius: 4px;
+  padding: 16px 64px;
+  -webkit-box-shadow: 0px 10px 13rgb 219, 219, 219 #000000, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+}
+#mainVegetalEdit form label {
+  padding-top: 16px;
+  display: block;
+}
+#mainVegetalEdit form input {
+  width: 550px;
+  padding: 8px 24px;
+  border-radius: 32px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border: solid 1px black;
+}
+#mainVegetalEdit form textarea {
+  width: 550px;
+  height: 200px;
+  border-radius: 32px;
+  font-size: 16px;
+  padding: 24px 24px;
+  border: solid 1px black;
+  margin-bottom: 8px;
+}
+#mainVegetalEdit form button {
+  margin-top: 16px;
+  align-self: center;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) label {
+  display: none;
+}
+#mainVegetalEdit form div.image-entry button.remove-image {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 32px;
+  width: 600px;
+  border-radius: 32px;
+  color: black;
+  border: solid 1px black;
+  background-color: white;
+  margin-bottom: 64px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#mainVegetalEdit form div.image-entry button.remove-image:hover {
+  color: black;
+  background-color: rgba(240, 128, 128, 0.5);
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) {
+  width: 600px;
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) div.vich-image div:nth-of-type(1) {
+  display: none;
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) div.vich-image a > img {
+  width: 600px;
+  height: auto;
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) div.vich-image a:nth-of-type(2) {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 32px;
+  width: 534px;
+  border-radius: 32px;
+  color: black;
+  border: solid 1px black;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#mainVegetalEdit form div.image-entry div:nth-of-type(1) div.vich-image a:nth-of-type(2):hover {
+  color: white;
+  background-color: black;
+}
+
+#mainCelestial h1 {
+  padding-top: 32px;
+  font-size: 32px;
+  font-family: QuickBrush;
+  text-align: center;
+}
+
+#mainProfil div#bannerProfil {
+  height: 600px;
+  width: 100%;
+  background-image: url("/images/meshs/Pinceau accueil.PNG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#mainProfil div#bannerProfil a > img {
+  margin-top: 32px;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  height: 160px;
+}
+#mainProfil div#bannerProfil h1 {
+  font-size: 64px;
+  font-family: QuickBrush;
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 64px;
+}
+#mainProfil div.profil {
+  margin-top: -128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 64px;
+}
+#mainProfil div.profil div.photoProfil {
+  background-image: url("/images/profil/Portrait.png");
+  width: 400px;
+  height: 650px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.4);
+  margin-right: 64px;
+  background-size: cover;
+}
+#mainProfil div.profil div.detailsProfil {
+  width: 400px;
+  height: 650px;
+}
+#mainProfil div.profil div.detailsProfil p:nth-of-type(1) {
+  font-family: QuickBrush;
+  font-size: 40px;
+}
+#mainProfil div.profil div.detailsProfil p:nth-of-type(2) {
+  font-size: 16px;
+  font-family: Acumin;
+  padding-top: 8px;
+  width: 450px;
+  line-height: 24px;
+  padding-bottom: 32px;
+}
+#mainProfil div.profil div.detailsProfil p:nth-of-type(3) {
+  font-size: 16px;
+  font-family: Acumin;
+  font-style: italic;
+  padding-top: 8px;
+  width: 400px;
+  line-height: 24px;
+}
+
+#mainLogin {
+  padding-top: 64px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+#mainLogin form {
+  font-size: 16px;
+  font-family: Acumin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 32px 64px;
+  -webkit-box-shadow: 0px 10px 13rgb 219, 219, 219 #000000, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+}
+#mainLogin form h1 {
+  font-size: 64px;
+  font-family: QuickBrush;
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 8px;
+}
+#mainLogin form input {
+  font-size: 16px;
+  font-family: Acumin;
+  width: calc(100% - 66px);
+  padding: 8px 32px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  border: solid 1px black;
+  font-size: 16px;
+}
+#mainLogin form input::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+#mainLogin form button {
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 16px;
+  align-self: center;
+  padding: 8px 32px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  border: solid 2px black;
+  transition: 0.2s;
+}
+#mainLogin form button:hover {
+  border: solid 2px black;
+  background-color: white;
+  color: black;
+}
+
+#mainRegister {
+  padding-top: 128px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+#mainRegister form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  border-radius: 4px;
+  padding: 16px 64px;
+  -webkit-box-shadow: 0px 10px 13rgb 219, 219, 219 #000000, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+}
+#mainRegister form h1 {
+  text-align: center;
+}
+#mainRegister form input {
+  padding: 4px;
+  margin-bottom: 8px;
+}
+#mainRegister form button {
+  margin-top: 16px;
+  align-self: center;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+#mainContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#mainContact div#bannerContact {
+  height: 600px;
+  width: 100%;
+  background-image: url("/images/meshs/Pinceau accueil.PNG");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#mainContact div#bannerContact a > img {
+  margin-top: 32px;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  height: 160px;
+}
+#mainContact div#bannerContact h1 {
+  font-size: 64px;
+  font-family: QuickBrush;
+  text-align: center;
+  font-weight: lighter;
+  padding-bottom: 64px;
+}
+#mainContact form {
+  margin-top: -128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 32px 64px;
+  -webkit-box-shadow: 0px 10px 13rgb 219, 219, 219 #000000, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46, 46, 46, 0.75);
+  margin-bottom: 128px;
+  background-color: rgb(250, 250, 250);
+}
+#mainContact form div {
+  width: 100%;
+}
+#mainContact form div input {
+  width: calc(100% - 66px);
+  padding: 8px 32px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  border: solid 1px black;
+  font-size: 16px;
+}
+#mainContact form div input::placeholder {
+  color: rgba(0, 0, 0, 0.753);
+}
+#mainContact form div textarea {
+  border-radius: 20px;
+  width: 400px;
+  height: 200px;
+  font-size: 16px;
+  padding: 16px 16px;
+  border: solid 1px black;
+  font-family: Acumin;
+  text-align: left;
+}
+#mainContact form div textarea::placeholder {
+  font-family: Acumin;
+  text-align: left;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.753);
+}
+#mainContact form div:nth-of-type(5) {
+  width: 100%;
+}
+#mainContact form div:nth-of-type(5) button {
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 16px;
+  align-self: center;
+  padding: 8px 32px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  border: solid 2px black;
+  transition: 0.2s;
+}
+#mainContact form div:nth-of-type(5) button:hover {
+  border: solid 2px black;
+  background-color: white;
+  color: black;
+}
+
+footer {
+  background-color: black;
+  background-image: url("./../../images/meshs/Pinceau bas page.PNG");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 64px;
+}
+footer > p {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+footer > a:nth-of-type(1) {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+}
+footer > a:nth-of-type(1) i {
+  padding-right: 8px;
+}
+footer > a:nth-of-type(2) {
+  scroll-behavior: smooth;
+  margin-top: 96px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer > a:nth-of-type(2) img {
+  height: 100px;
+}
+footer > a:nth-of-type(2) p {
+  padding-top: 16px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 800px) {
+  header nav ul {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 320px;
+    left: auto;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainHome section ul li a video {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #mainHome section ul li a video {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  #mainProfil div.profil {
+    flex-direction: column;
+  }
+  #mainProfil div.profil div.photoProfil {
+    width: 350px;
+    height: 350px;
+    border-radius: 500px;
+    margin-right: 0;
+    margin-bottom: 64px;
+  }
+  #mainProfil div.profil div.detailsProfil {
+    text-align: center;
+    width: 650px;
+  }
+  #mainProfil div.profil div.detailsProfil p:nth-of-type(1) {
+    font-family: QuickBrush;
+    font-size: 40px;
+  }
+  #mainProfil div.profil div.detailsProfil p:nth-of-type(2) {
+    width: 100%;
+  }
+  #mainProfil div.profil div.detailsProfil p:nth-of-type(3) {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #mainProfil div.profil div.detailsProfil {
+    width: 480px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mainProfil div.profil div.photoProfil {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 32px;
+  }
+  #mainProfil div.profil div.detailsProfil {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 450px) {
+  #mainProfil div.profil div#bannerProfil a img {
+    display: inline-block;
+  }
+  #mainProfil div.profil div.photoProfil {
+    width: 200px;
+    height: 200px;
+  }
+  #mainProfil div.profil div.detailsProfil {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #mainContact form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: none;
+    background-color: white;
+    padding: 0;
+  }
+  #mainContact form div {
+    width: 80%;
+  }
+  #mainContact form div input {
+    text-align: center;
+  }
+  #mainContact form div textarea {
+    width: 100%;
+    padding: 16px 0px;
+    text-align: center;
+  }
+  #mainContact form div textarea::placeholder {
+    text-align: center;
+  }
+  #mainContact form div:nth-of-type(5) {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

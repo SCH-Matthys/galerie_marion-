@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MP Galerie{% endblock %}
+
+{% block main %}
+    <main id="mainHome">
+        <div id="bannerHome">
+            <a href="{{ path("app_home") }}">
+                <img src="{{ asset("/images/logos/logo.png")}}" alt="logo MP Marion Page">
+            </a>
+            <h1>Galerie</h1>
+        </div>
+        <section>
+            <ul>
+                <li class="animationScrollHidden">
+                    <a href="{{ path("app_vegetal") }}">
+                        <video autoplay muted loop width="500" height="500" src="{{asset("videos/Bouton Végétal.mp4")}}" type="video/mp4"></video>
+                        {# <img src="{{asset("images/végétal.png")}}" alt="image cliquable pour aller à la partie végétal"> #}
+                        <h2>Végétal</h2>
+                    </a>
+                </li>
+                <li class="animationScrollHidden">
+                    <a href="{{ path("app_aquatique") }}">
+                        <video autoplay muted loop width="500" height="500" src="{{asset("videos/Bouton aquatique.mp4")}}" type="video/mp4"></video>
+                        {# <img src="{{asset("images/aquatique.png")}}" alt="image cliquable pour aller à la partie aquatique"> #}
+                        <h2>Aquatique</h2>
+                    </a>
+                </li>
+                <li class="animationScrollHidden">
+                    <a href="{{ path("app_celestial") }}">
+                        <video autoplay muted loop width="500" height="500" src="{{asset("videos/boutonNuage.mp4")}}" type="video/mp4"></video>
+                        {# <img src="{{asset("images/ciel.png")}}" alt="image cliquable pour aller à la partie ciel ouvert"> #}
+                        <h2>Ciel Ouvert</h2>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+{% endblock %}
+{% block script %}
+    <script src="{{ asset('js/animationScrollHome.js') }}"></script>
+{% endblock %}

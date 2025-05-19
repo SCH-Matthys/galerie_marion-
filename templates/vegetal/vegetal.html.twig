@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MP Galerie - Végétal{% endblock %}
+
+{% block main %}
+    <main id="mainVegetal">
+        <div id="lightbox" style="display: none;">
+            <span id="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="image agrandie">
+            <div id="lightbox-controls">
+                <button id="prev">⟨</button>
+                <button id="next">⟩</button>
+            </div>
+        </div>
+        <div id="bannerVegetal">
+            <a href="{{ path("app_home") }}">
+                <img src="{{ asset("/images/logos/logo.png")}}" alt="logo MP Marion Page">
+            </a>
+            <h1>Végétal</h1>
+        </div>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path("app_vegetal_add") }}" id="btnAddArticle">Ajouter un article</a>
+        {% endif %}
+        {% for article in articles %}
+            {% if loop.index is odd %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <div class="btn-admin">
+                        <a href="{{path("app_vegetal_edit", {"id":article.id}) }}">modifier</a>
+                        <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer cet article ?')" action="{{ path('app_vegetal_delete', {'id': article.id}) }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ article.id)}}">
+                            <input type="submit" id="delete" value="supprimer">
+                        </form>
+                    </div>
+                {% endif %}
+                {# Odd = images à gauche #}
+                <article class="articleOdd oddAnimationScrollHidden">
+                    <div class="carousel">
+                        <div class="slider">
+                            {% for image in article.images %}
+                                <div class="image">
+                                    <img src="{{ asset('uploads/images/' ~ image.fileName) }}" alt="{{ article.titre }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <h2>{{article.titre}}</h2>
+                        <p>{{article.description}}</p>
+                        {# <p>{{article.caracteristique}}</p> #}
+                        <div class="caracteristiques">
+                            <p>{{article.artistName}}</p>
+                            <p>{{article.articleDetails}}</p>
+                            <p>{{article.technic}}</p>
+                            <p>{{article.dimension}}</p>
+                        </div>
+                    </div>
+                </article>
+            {% else %}
+            {% if is_granted("ROLE_ADMIN") %}
+                <div class="btn-admin">
+                    <a href="{{path("app_vegetal_edit", {"id":article.id}) }}">modifier</a>
+                    <form method="POST" onsubmit="return confirm('Voulez vous vraiment supprimer cet article ?')" action="{{ path('app_vegetal_delete', {'id': article.id}) }}">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ article.id)}}">
+                        <input type="submit" id="delete" value="supprimer">
+                    </form>
+                </div>
+            {% endif %}
+            {# NotOdd = images à droite #}
+            <article class="articleNotOdd notOddAnimationScrollHidden">
+                <div class="carousel">
+                    <div class="slider">
+                        {% for image in article.images %}
+                            <div class="image">
+                                <img src="{{ asset('uploads/images/' ~ image.fileName) }}" alt="{{ article.titre }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <h2>{{article.titre}}</h2>
+                    <p>{{article.description}}</p>
+                    <div class="caracteristiques">
+                            <p>{{article.artistName}}</p>
+                            <p>{{article.articleDetails}}</p>
+                            <p>{{article.technic}}</p>
+                            <p>{{article.dimension}}</p>
+                    </div>
+                    {# <p>{{article.caracteristique}}</p> #}
+                </div>
+            </article>
+            {% endif %}
+        {% endfor %}
+    </main>
+{% endblock %}
+{% block script %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
+    <script src="{{ asset('js/animationScrollVegetal.js') }}"></script>
+    <script src="{{ asset('js/lightbox.js') }}"></script>
+{% endblock %}

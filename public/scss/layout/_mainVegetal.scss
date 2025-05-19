@@ -1,0 +1,468 @@
+@use "./../abstract/variable" as var;
+@use "./../base/typo";
+
+// PAGE INDEX /////////////////////////////////////////////////////////////
+#mainVegetal{
+    #lightbox {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+    }
+    
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80vh;
+    }
+    
+    #lightbox-controls {
+        margin-top: 10px;
+    }
+    
+    #lightbox button {
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        padding: 10px;
+        margin: 0 20px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+    
+    #lightbox-close {
+        position: absolute;
+        top: 16px;
+        right: 32px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    div#bannerVegetal{
+        height: 385px;
+        width: 100%;
+        background-image: url("/images/meshs/Végétal.PNG");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        a{
+            >img{
+            margin-top: 32px;
+                transform: translateX(-50%);
+                margin-left: 50%;
+                height: 160px;
+            }
+        }
+        h1{
+            padding-top: 32px;
+            font-size: 64px;
+            font-family: QuickBrush;
+            text-align: center;
+            font-weight: lighter;
+            padding-bottom: 64px;
+        }
+        margin-bottom: 64px;
+    }
+    a#btnAddArticle{
+        margin-top: 64px;
+        margin-bottom: 128px;
+        display: inline-block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        padding: 8px 32px;
+        margin-bottom: 16px;
+        border-radius: 20px;
+        border: solid 1px black;
+        font-size: 16px;
+        transition: 0.3s;
+        color: black;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+    div.btn-admin{
+        // padding: 8px 0px;
+        // border: solid 1px red;
+        display: flex;
+        gap: 64px;
+        justify-content: center;
+        align-items: center;
+        a{
+            margin: 0px 0px 16px;
+            color: black;
+            padding: 8px 32px;
+            border: solid 1px black;
+            border-radius: 20px;
+            transition: 0.2s;
+            &:hover{
+                background-color: rgba(173, 216, 230, 0.5);
+            }
+        }
+        #delete{
+            font-size: 16px;
+            font-family: Acumin;
+            color: black;
+            background-color: white;
+            margin: 0px 0px 16px;
+            padding: 8px 32px;
+            border: solid 1px black;
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(240, 128, 128, 0.5);
+            }
+        }
+    }
+    // Odd = images à gauche
+    
+    article.oddAnimationScrollHidden{
+        opacity: 0;
+        transition: all 2s;
+        transform: translateX(-10%);
+        filter: blur(2px);
+    }
+    article.oddAnimationScrollShow{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+    article.articleOdd{
+        margin: auto;
+        width: 1000px;
+        display: flex;
+        padding-bottom: 150px;
+        .carousel{
+            height: auto;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            // border: solid 2px blue;
+            .slider{
+                gap: 0;
+                transition: transform 2s ease;
+                position: relative;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+                width: calc(100% * var(--total-images));
+                left: 0;
+                .image{
+                    // border: solid 2px blue;
+                    flex: 0 0 100%;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                }
+                img{
+                    display: block; /* Supprime les petits espaces sous l’image */
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+        }
+        div:nth-of-type(2){
+            max-height: 600px;
+            margin-left: 64px;
+            display: flex;
+            flex-direction: column;
+            height: 490px;
+            width: 500px;
+            h2{
+                margin-top: 16px;
+                font-size: 40px;
+                font-family: QuickBrush;
+                font-weight: lighter;
+                // border: solid 1px grey;
+            }
+            p:nth-of-type(1){
+                margin-top: 32px;
+                // border: solid 1px grey;
+                line-height: 24px;
+            }
+            div{
+                margin-top: auto;
+                p{
+                    padding-bottom: 2px;
+                }
+                p:nth-of-type(2){
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+    // NotOdd = images à droite
+    article.notOddAnimationScrollHidden{
+        opacity: 0;
+        transition: all 2s;
+        transform: translateX(10%);
+        filter: blur(5px);
+    }
+    article.notOddAnimationScrollShow{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+    article.articleNotOdd{
+        margin: auto;
+        width: 1000px;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-bottom: 150px;
+        .carousel{
+            // border: solid 2px red;
+            height: auto;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            .slider{
+                gap: 0;
+                transition: transform 2s ease;
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: calc(100% * var(--total-images));
+                left: 0;
+                .image{
+                    // border: solid 2px blue;
+                    flex: 0 0 100%;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                }
+                img{
+                    height: auto;
+                    width: 100%;
+                    display: block;
+                    object-fit: cover;
+                }
+            }
+        }
+        div:nth-of-type(2){
+            margin-right: 64px;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 490px;
+            h2{
+                font-weight: lighter;
+                margin-top: 16px;
+                font-size: 32px;
+                font-family: QuickBrush;
+                text-align: start;
+            }
+            p:nth-of-type(1){
+                margin-top: 32px;
+                line-height: 24px;
+            }
+            div{
+                margin-top: auto;
+                p{
+                    padding-bottom: 2px;
+                    text-align: end;
+                }
+                p:nth-of-type(2){
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}
+
+#mainVegetalAdd{
+    padding: 128px;
+    h1{
+        margin: auto;
+        padding-top: 32px;
+        font-size: 32px;
+        font-family: QuickBrush;
+        font-weight: lighter;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    h2{
+        margin: auto;
+        padding-top: 32px;
+        font-size: 32px;
+        font-weight: lighter;
+        font-family: QuickBrush;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    form{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        width: 600px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        border-radius: 4px;
+        padding: 16px 64px;
+        -webkit-box-shadow: 0px 10px 13rgb(219, 219, 219) #000000, 0px 8px 16px 0px rgba(46,46,46,0.75); 
+        box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46,46,46,0.75);
+        label{
+            padding-top: 16px;
+            display: block;
+        }
+        input{
+            width: calc(600px - 50px);
+            padding: 8px 24px;
+            border-radius: 32px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            border: solid 1px black;
+            font-family: Acumin;
+            &::placeholder{
+                text-align: left;
+                margin-top: 2px;
+            }
+        }
+        textarea{
+            width: calc(600px - 50px);
+            height: 200px;
+            border-radius: 32px;
+            font-size: 16px;
+            padding: 24px 24px;
+            border: solid 1px black;
+            margin-bottom: 8px;
+            font-family: Acumin;
+            &::placeholder{
+                text-align: left;
+                padding-top: 2px;
+            }
+        }
+        button{
+            font-family: Acumin;
+            margin-top: 16px;
+            align-self: center;
+            padding: 4px 16px;
+            cursor: pointer;
+        }
+    }
+}
+
+#mainVegetalEdit{
+    padding: 128px;
+    h1{
+        margin: auto;
+        padding-top: 32px;
+        font-size: 32px;
+        font-family: QuickBrush;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    h2{
+        margin: auto;
+        padding-top: 32px;
+        font-size: 32px;
+        font-family: QuickBrush;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    form{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        width: 600px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        border-radius: 4px;
+        padding: 16px 64px;
+        -webkit-box-shadow: 0px 10px 13rgb(219, 219, 219) #000000, 0px 8px 16px 0px rgba(46,46,46,0.75); 
+        box-shadow: 0px 10px 13px -7px #bdbdbd, 0px 8px 16px 0px rgba(46,46,46,0.75);
+        label{
+            padding-top: 16px;
+            display: block;
+        }
+        input{
+            width: calc(600px - 50px);
+            padding: 8px 24px;
+            border-radius: 32px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            border: solid 1px black;
+        }
+        textarea{
+            width: calc(600px - 50px);
+            height: 200px;
+            border-radius: 32px;
+            font-size: 16px;
+            padding: 24px 24px;
+            border: solid 1px black;
+            margin-bottom: 8px;
+        }
+        button{
+            margin-top: 16px;
+            align-self: center;
+            padding: 4px 16px;
+            cursor: pointer;
+        }
+        div.image-entry{
+            div:nth-of-type(1){
+                label{
+                    display: none;
+                }
+            }
+            button.remove-image{
+                display: block;
+                text-align: center;
+                font-size: 16px;
+                padding: 8px 32px;
+                width: 600px;
+                border-radius: 32px;
+                color: black;
+                border: solid 1px black;
+                background-color: white;
+                margin-bottom: 64px;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    color: black;
+                    background-color: rgba(240, 128, 128, 0.5);
+                }
+            }
+            div:nth-of-type(1){
+                width: 600px;
+                div.vich-image{
+                    div:nth-of-type(1){
+                        display: none;
+                    }
+                    a>img{
+                        width: 600px;
+                        height: auto;
+                    }
+                    a:nth-of-type(2){
+                        display: block;
+                        text-align: center;
+                        font-size: 16px;
+                        padding: 8px 32px;
+                        width: calc(600px - 66px);
+                        border-radius: 32px;
+                        color: black;
+                        border: solid 1px black;
+                        background-color: white;
+                        cursor: pointer;
+                        transition: 0.3s;
+                        &:hover{
+                            color: white;
+                            background-color: black;
+                        }
+                    }
+                }
+            }      
+        }
+    }
+}

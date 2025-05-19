@@ -1,0 +1,21 @@
+@use "base/reset";
+@use "base/general";
+@use "base/typo";
+
+@use "layout/header";
+@use "layout/mainHome";
+@use "layout/mainAquatic";
+@use "layout/mainVegetal";
+@use "layout/mainCelestial";
+@use "layout/mainProfil";
+@use "layout/mainLogin";
+@use "layout/mainRegister";
+@use "layout/mainContact";
+
+@use "layout/footer";
+
+// Responsive
+@use "responsives/responsiveHeader";
+@use "responsives/responsiveHome";
+@use "responsives/responsiveProfil";
+@use "responsives/responsiveContact";

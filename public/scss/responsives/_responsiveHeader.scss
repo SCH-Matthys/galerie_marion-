@@ -1,0 +1,13 @@
+@media screen and (max-width : 800px) {
+    header{
+        nav{
+            ul{
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                top: 320px;
+                left: auto;
+            }
+        }
+    }
+}

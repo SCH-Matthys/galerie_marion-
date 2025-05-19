@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MP Galerie - Contact{% endblock %}
+
+{% block main %}
+    <main id="mainContact">
+        <div id="bannerContact">
+            <a href="{{ path("app_home") }}">
+                <img src="{{ asset("/images/logos/logo.png")}}" alt="logo MP Marion Page">
+            </a>
+            <h1>Contact</h1>
+        </div>
+        {{ form_start(form) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.phone) }}
+            {{ form_row(form.message) }}
+            {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    </main>
+{% endblock %}
